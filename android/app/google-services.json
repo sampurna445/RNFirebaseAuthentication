@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "54377192441",
+    "project_id": "rnfirabaseauthentication",
+    "storage_bucket": "rnfirabaseauthentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54377192441:android:70095ff3d3b76b74f7bb28",
+        "android_client_info": {
+          "package_name": "com.rnfirebaseauthentication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvMjxxiwZ02ddAw0-bWuzgT_bNFNoO29o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
