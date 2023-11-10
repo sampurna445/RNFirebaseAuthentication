@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RNFirebaseAuthentication</string>
     <string name="facebook_app_id">329240776412861</string>
+     <string name="facebook_client_token">fc9c02480d125cf3e75e533182a08592</string>
 </resources>
