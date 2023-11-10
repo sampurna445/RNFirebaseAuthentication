@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, TextInput, Button, Alert} from 'react-native';
 import auth from '@react-native-firebase/auth';
+import { LoginManager,AccessToken } from 'react-native-fbsdk-next';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -72,6 +73,27 @@ const LoginScreen = ({navigation}) => {
       Alert.alert('Error', error.message);
     }
   };
+  async function onFacebookButtonPress() {
+    // Attempt login with permissions
+    const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+  
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+  
+    // Once signed in, get the users AccessToken
+    const data = await AccessToken.getCurrentAccessToken();
+  
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+  
+    // Create a Firebase credential with the AccessToken
+    const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+  
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(facebookCredential);
+  }
 
   return (
     <View>
@@ -88,6 +110,14 @@ const LoginScreen = ({navigation}) => {
       />
       <Button title="Login" onPress={handleLogin} />
       <Button title="Register" onPress={handleRegister} />
+      <Button
+        title="Facebook Sign-In"
+        onPress={() =>
+          onFacebookButtonPress().then(() =>
+            console.log('Signed in with Facebook!'),
+          )
+        }
+      />
     </View>
   );
 };

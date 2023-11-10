@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RNFirebaseAuthentication</string>
+    <string name="facebook_app_id">329240776412861</string>
 </resources>

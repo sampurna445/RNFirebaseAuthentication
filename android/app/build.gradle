@@ -105,6 +105,10 @@ android {
 }
 
 dependencies {
+    //for facebook
+    // implementation project(':react-native-fbsdk-next')
+    // implementation project(path: ":@react-native-firebase_auth")
+
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 
